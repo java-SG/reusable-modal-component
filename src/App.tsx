@@ -5,6 +5,11 @@ import './App.css'
 function App() {
 
   const [displayModal, setDisplayModal] = useState<boolean>(false);
+  
+  /* 
+  Using "displayModal && <Content>" will conditionally render the <Modal/>, passing the onClose() prop down to set it back to false 
+  and its {children} the rest of the content encapsulated inside the <Modal> element
+  */
 
   return (
     <>
@@ -13,10 +18,7 @@ function App() {
           <div className="bg-white text-black flex justify-center items-center h-[80vh] w-[90vw] border-[2px] rounded-[15px]">Modal Content</div>
         </Modal>}
       <div
-        className="
-          h-screen w-screen
-          flex justify-evenly items-center
-          ">
+        className="h-screen w-screen flex justify-evenly items-center">
         <div className="flex flex-col justify-evenly items-center h-full w-full">
           <div className="max-w-[70vw] max-h-[70vh] text-center">
             Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.

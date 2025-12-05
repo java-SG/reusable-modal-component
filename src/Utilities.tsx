@@ -1,3 +1,8 @@
+/* 
+Simple utility box component for re-using things like a close button,
+not really part of this module but thought why not add this as well, with the passed down onClose()
+*/
+
 export function CloseButton({ onClick }: { onClick: () => void }) {
 
     return (
