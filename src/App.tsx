@@ -1,33 +1,34 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import Modal from './Modal.tsx'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+
+  const [displayModal, setDisplayModal] = useState<boolean>(false);
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      {displayModal &&
+        <Modal onClose={() => { setDisplayModal(false) }}>
+          <div className="bg-white text-black flex justify-center items-center h-[80vh] w-[90vw] border-[2px] rounded-[15px]">Modal Content</div>
+        </Modal>}
+      <div
+        className="
+          h-screen w-screen
+          flex justify-evenly items-center
+          ">
+        <div className="flex flex-col justify-evenly items-center h-full w-full">
+          <div className="max-w-[70vw] max-h-[70vh] text-center">
+            Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.
+          </div>
+          <button
+            className="bg-blue-500 py-[1px] px-[5vh] hover:bg-blue-300 border-[2px] rounded-[15px] text-center transition duration-300 cursor-pointer"
+            onClick={() => setDisplayModal(true)}
+            aria-label="Modal">
+            Get Modal
+          </button>
+        </div>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
   )
 }
